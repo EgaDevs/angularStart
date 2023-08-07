@@ -1,0 +1,10 @@
+.err{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+.not-found{
+    width: 80%;
+    height: 500px;
+}

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="joke">
+        <div class="joker">
+            <div class="joker_intro">
+                <p class="joker_text">Get Random Joke of the Day!</p>
+                <button class="button-29" role="button" (click) = "active()" (click)="getJoke()">{{!open? "Get It" : "Back"}}</button>
+                <button class="button-29" (click)="downloadPdf()">Save Joke</button>    
+            </div>
+        </div>
+    </div>
+    <div [ngClass] = "{active: open}" class="box">{{joke}}</div>
+  </div>

@@ -1,0 +1,9 @@
+.menu{
+    display: flex;
+    column-gap: 20px;
+    padding-inline: 20px;
+}
+a{
+    color: rgb(39, 131, 131);
+    text-decoration: none;
+}

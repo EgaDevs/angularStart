@@ -1,0 +1,63 @@
+<div class="mars">
+    <h2>Rovers Image</h2>
+    <div class="rover">
+        <div class="rovers-info">
+            <img class="rovers-photo" src="../assets/img/curiosity.jpg" alt="">
+            <p>Curiosity</p>
+        </div>
+        <div class="rovers-info">
+            <img class="rovers-photo" src="../assets/img/opportunity.jpg" alt="">
+            <p>Opportunity</p>
+        </div>
+        <div class="rovers-info">
+            <img class="rovers-photo" src="../assets/img/perserverance.jpg" alt="">
+            <p>Perserverance</p>
+        </div>
+        <div class="rovers-info">
+            <img class="rovers-photo" src="../assets/img/spirit.jpg" alt="">
+            <p>Spirit</p>
+        </div> 
+    </div>
+    <h2>Rovers Information</h2>
+    <div *ngIf="load" class="spinner-3"></div>
+
+    <table *ngIf = "!load">
+        <thead>
+            <tr>
+                <th>Name of rover:</th>
+                <th>Launch date:</th>
+                <th>Landing date:</th>
+                <th>Status:</th>
+                <th>Amount of cameras:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let page of pages">
+                <td>{{page.name}}</td>
+                <td>{{page.launch_date}}</td>
+                <td>{{page.landing_date}}</td>
+                <td>{{page.status}}</td>
+                <td>{{page.cameras.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div class="photo">
+            <div>
+                <select class="selector" name="rovers" id="" (change)="getData($event)">
+                    <option>select</option>
+                    <option value="curiosity">Curiosity</option>
+                    <option value="spirit">Spirit</option>
+                    <option value="opportunity">Opportunity</option>
+                    <option value="perseverance">Perseverance</option>
+                </select>
+                <input  type="date" (input)="onInput($event)">
+                <button class="search" (click)="onPhoto()">search</button>
+            </div>
+            <div class="photos_box" *ngIf = "photos.length > 0">
+                <div  *ngFor="let photo of photos.slice(0,20)">
+                    <img class="mars-photo" [src]="photo.img_src" alt="">
+                </div>
+            </div>
+        </div>
+</div>

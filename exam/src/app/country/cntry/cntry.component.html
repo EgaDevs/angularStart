@@ -1,0 +1,33 @@
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<div class="wrapper">
+    <div class="typing-demo">
+      Hello! Here you can find information about countries. Let's try?
+    </div>
+</div>
+<form class="search-container">
+    <input type="text" name="search" placeholder="Search..." class="search-input" [(ngModel)]='country'>
+    <button (click)="getAttributes()" class="search-btn">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+
+    <div  class="table-wrapper">
+        <div class="error" *ngIf = "errorWord">
+            {{errorWord}}
+        </div>
+    <ng-container *ngIf = "!errorWord">
+        <div  class="info" *ngFor = "let attribute of attributes">
+            <div class="infor">
+                <h1>Country:     {{attribute.name.common}}</h1>
+                <h2>Capital:     {{attribute.capital}}</h2>
+                <h4>Continent:   {{attribute.continents}}</h4>
+                <h4>Population:  {{population}} mln</h4>
+                <h4>Currency:    Euro</h4>
+                <h4>Language:    Spanish</h4>
+            </div>
+            <div class="flag">
+                <img [src]="attribute.flags.png" alt="">
+            </div>
+        </div>
+    </ng-container>
+</div>
